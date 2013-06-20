@@ -3,22 +3,18 @@ package org.coder36.wordchain;
 import java.util.Stack;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Mark
- * Date: 20/06/13
- * Time: 16:07
- * To change this template use File | Settings | File Templates.
+ * @author MArk Middleton
  */
-public class WordChainImpl implements Wordchain {
+public class WordchainImpl implements Wordchain {
     private String [] dict;
     private int depth;
 
-    public WordChainImpl( String [] wordList, int depth ) {
+    public WordchainImpl(String[] wordList, int depth) {
         this.dict = wordList;
         this.depth = depth;
     }
 
-    public WordChainImpl( String [] wordList ) {
+    public WordchainImpl(String[] wordList) {
         this(wordList, 10);
     }
 
@@ -30,7 +26,7 @@ public class WordChainImpl implements Wordchain {
         for ( int i=0; i < depth; i++ ) {
             Stack<String> stack = new Stack<>();
             recurse( from, to, stack, i );
-            if ( stack.size() != 1 ) return stack.toArray( new String[0] );
+            if ( stack.size() != 1 ) return stack.toArray( new String[stack.size()] );
         }
         return new String[0];
     }
@@ -63,5 +59,4 @@ public class WordChainImpl implements Wordchain {
         }
         return false;
     }
-
 }
